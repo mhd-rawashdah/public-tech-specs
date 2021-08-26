@@ -137,7 +137,7 @@ So to perform the Aggregation we have multiple suggested solutions:
 
 - Cache DMS settings (Default FTQ, Ovrride FTQs, Stats, etc) to allow DMS work with Offline FTQ.
 
-- Show dialog for the user to ask him if he need to save submission that made in offline mode.
+- Show dialog for the user to ask him if he need to save submissions that made in offline mode.
 
 
 
