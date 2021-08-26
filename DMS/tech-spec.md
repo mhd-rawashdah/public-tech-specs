@@ -169,7 +169,7 @@ We will fork Document Manager Stats to create a custom plugin: Document Manager 
 
 - Map must be graceful during offline mode
 
-- Expand the cache limit for last 200 location entrieso display on the map instantly with our pagination.
+- Expand the cache limit for last 200 location entries display on the map instantly with our pagination.
 
 
 
