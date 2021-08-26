@@ -1,3 +1,4 @@
+#  Document Manager Stats [Enhancement]
 
 ## Overview
 In this enhancement we are going to make DMS Stats more configurable by allow the app owner set his desired stats, and make the plugin support offline mode with the last 5 entries cached at any time. (make it easy to change from 5 to X in the future)
@@ -46,11 +47,9 @@ So to perform the Aggregation we have multiple suggested solutions:
  - Make `AppData` storage service support Aggregation by implement this feature on the core system
  
  - Pros:
-
    * Easy to perform the Aggregation for huge data on plugin, without need to load all submissions and perform it on app side. 
  
  - Cons: 
-   
    * Might have performance issue on DB side by consider the prod data the we have and indexing. 
    * Might this feature take time to be implemented  on core system with consider the scope, consistency and the way that we need to implement
    
@@ -65,11 +64,9 @@ So to perform the Aggregation we have multiple suggested solutions:
    stats result for them with point for last submission. 
 
   - Pros
-
     * No additional works need to be implemented on core system, the solution will be within plugin scope
 
   - Cons
-    
     * Might have performance issue with huge submissions
     * Each time app owner add new stats need to load all data to do the calculation for it
 
@@ -102,7 +99,6 @@ So to perform the Aggregation we have multiple suggested solutions:
    * Save configurable stats to existing Setting Document (Datastore) as Array 
      
       Current 
-
       ```
         class Setting {
 
@@ -135,16 +131,45 @@ So to perform the Aggregation we have multiple suggested solutions:
 
 ## Support Offline
 
+- Using file system for caching.
+
+- Cache last 5 entries  at any time. (make it easy to change from 5 to X in the future).
+
+- Cache DMS settings (Default FTQ, Ovrride FTQs, Stats, etc) to allow DMS work with Offline FTQ.
+
+- Show dialog for the user to ask him if he need to save submission that made in offline mode.
 
 
-#  Document Manager Stats [Geolocation]
+
+#  Document Manager Stats V2.0 [Geolocation]
 
 ## Overview 
 
-We will fork Document Manager Stats to create a custom plugin: Document Manager Stats [Geolocation] that will support showing google maps and make some enhancement on Layouts
+We will fork Document Manager Stats to create a custom plugin: Document Manager Stats [Geolocation] that will support showing google maps and make some enhancement on app Layouts.
 
 
+## Approch
 
+- Support showing Map on the top of the screen.
+
+- Show on Map all markers of all location entries made on the FTQ.
+
+- Map must zoom to show all locations in the initial viewport
+ 
+- change showing submission details to be in a  new page instead of the expand way.
+
+- DMS will display the total duration in HHH:MM:SS format.
+
+- Config "Total Dive Time" stats that is a sum of score.
+
+- Config "Total Dives" stats that is "Total Submissions" by default.
+
+
+## Support Offline
+
+- Map must be graceful during offline mode
+
+- Expand the cache limit for last 200 location entrieso display on the map instantly with our pagination.
 
 
 
